@@ -110,3 +110,25 @@ body{
     }
 
 }
+
+.carretera::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent 17%,
+        #ffd700 17%,
+        #ffd700 18%,
+        transparent 18%,
+
+        transparent 82%,
+        #ffd700 82%,
+        #ffd700 83%,
+        transparent 83%
+    );
+
+    pointer-events:none;
+}
