@@ -104,6 +104,25 @@ body{
     );
 }
 
+.auto::before{
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:18px;
+
+    background:#111;
+
+    left:-5px;
+    top:15px;
+
+    box-shadow:
+    0 45px #111,
+    62px 0 #111,
+    62px 45px #111;
+}
+
 .nombreAuto{
     position:absolute;
     left:55%;
