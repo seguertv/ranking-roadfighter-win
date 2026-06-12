@@ -26,8 +26,18 @@ body{
 .carretera{
     width:58%;
     position:relative;
-    background:#555;
     overflow:hidden;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2d8f2d 0%,
+        #2d8f2d 18%,
+        #555 18%,
+        #555 82%,
+        #2d8f2d 82%,
+        #2d8f2d 100%
+    );
 }
 
 .carretera::before{
