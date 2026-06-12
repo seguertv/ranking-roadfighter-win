@@ -45,15 +45,19 @@ body{
     position:absolute;
     left:50%;
     top:0;
-    width:8px;
-    height:100%;
+    width:10px;
+    height:200%;
+
     background:
     repeating-linear-gradient(
-        white 0px,
-        white 20px,
-        transparent 20px,
-        transparent 40px
+        to bottom,
+        #ffffff 0px,
+        #ffffff 40px,
+        transparent 40px,
+        transparent 80px
     );
+
+    animation: carretera 1s linear infinite;
 }
 
 .meta{
