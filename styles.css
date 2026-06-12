@@ -98,3 +98,15 @@ body{
     padding:15px;
     text-align:center;
 }
+
+@keyframes carretera{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(80px);
+    }
+
+}
