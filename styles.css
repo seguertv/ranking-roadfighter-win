@@ -78,12 +78,15 @@ body{
 
 .auto{
     position:absolute;
+
     width:40px;
     height:60px;
 
-    transition:all 1s ease;
+    object-fit:contain;
 
     transform:translateX(-50%);
+
+    transition:all 1s ease;
 }
 
 
