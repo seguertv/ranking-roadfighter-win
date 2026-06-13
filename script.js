@@ -37,7 +37,6 @@ auto.style.filter=`drop-shadow(0 0 3px ${a.color})`;
   const carriles = [30,40,50,60,70];
 auto.style.left = carriles[index % 5] + "%";
 
-   auto.style.background=a.color;
 
    const maxVentas = asesores[0].ventas;
 
