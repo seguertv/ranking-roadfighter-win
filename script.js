@@ -66,9 +66,13 @@ function dibujar() {
         auto.className = "auto";
         auto.style.filter = `drop-shadow(0 0 8px ${a.color})`;
 
-        const carriles = [30, 40, 50, 60, 70];
+        nombre.style.top = (80 + posicion - 22) + "px";
 
-        auto.style.left = carriles[index % 5] + "%";
+const carril = carriles[index % 5];
+
+nombre.style.left = `calc(${carril}% - 25px)`;
+nombre.style.width = "80px";
+nombre.style.textAlign = "center";
 
         const recorridoMaximo = 800;
 
@@ -89,7 +93,7 @@ function dibujar() {
     nombre.innerText = a.nombre.split(" ")[0];
 }
 
-        nombre.style.top = (80 + posicion - 30) + "px";
+        nombre.style.top = (80 + posicion - 25) + "px";
         nombre.style.left = carriles[index % 5] + "%";
 
         pista.appendChild(nombre);
