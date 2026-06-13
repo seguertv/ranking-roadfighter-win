@@ -26,8 +26,13 @@ function dibujar(){
    <p>${index+1}. ${a.nombre} (${a.ventas})</p>
    `;
 
-   const auto=document.createElement("div");
-   auto.className="auto";
+   const auto=document.createElement("img");
+
+auto.src="assets/car.png";
+
+auto.className="auto";
+
+auto.style.filter=`drop-shadow(0 0 3px ${a.color})`;
 
   const carriles = [30,40,50,60,70];
 auto.style.left = carriles[index % 5] + "%";
