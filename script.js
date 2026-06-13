@@ -36,6 +36,12 @@ dibujar();
 const pista = document.getElementById("pista");
 const ranking = document.getElementById("ranking");
 
+asesores = [
+ {nombre:"PRUEBA",ventas:10,color:"#FF0000"},
+ {nombre:"TEST",ventas:5,color:"#0066FF"}
+];
+
+dibujar();
 
 function dibujar(){
 
