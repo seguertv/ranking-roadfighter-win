@@ -27,14 +27,15 @@ async function cargarDatos(){
 
  }
 
-cargarDatos();
+
+dibujar();
+
 
 }
 
 const pista = document.getElementById("pista");
 const ranking = document.getElementById("ranking");
 
-dibujar();
 
 function dibujar(){
 
@@ -91,7 +92,11 @@ pista.appendChild(nombre);
  document.getElementById("hora").innerText=
  ahora.toLocaleTimeString();
 
+  cargarDatos();
+
  setInterval(cargarDatos,30000);
+
+
 
 }
 
