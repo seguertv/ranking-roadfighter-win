@@ -86,15 +86,7 @@ body{
     transform:translateX(-50%);
 }
 
-    transition:all 1s ease;
-  
 
-    box-shadow:
-    0 0 10px rgba(255,255,255,.5);
-
-   
-    );
-}
 
 .auto::before{
     content:"";
