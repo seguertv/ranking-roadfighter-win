@@ -2,7 +2,10 @@ const asesores = [
  {nombre:"FLAVIA",ventas:9,color:"#FF0000"},
  {nombre:"MARILY",ventas:7,color:"#0066FF"},
  {nombre:"LEONARDO",ventas:6,color:"#FFD700"},
- {nombre:"ESTEFANI",ventas:4,color:"#00CC00"}
+ {nombre:"ESTEFANI",ventas:4,color:"#00CC00"},
+ {nombre:"ISRAEL",ventas:3,color:"#FF7F00"},
+ {nombre:"PEDRO",ventas:2,color:"#9400D3"},
+ {nombre:"LUIS",ventas:1,color:"#00CED1"}
 ];
 
 const pista = document.getElementById("pista");
@@ -28,7 +31,15 @@ function dibujar(){
 
    auto.style.background=a.color;
 
-   auto.style.top=(120 + index*120)+"px";
+   const maxVentas = asesores[0].ventas;
+
+const recorridoMaximo = 800;
+
+const posicion =
+recorridoMaximo -
+((a.ventas / maxVentas) * recorridoMaximo);
+
+auto.style.top = (80 + posicion) + "px";
 
    pista.appendChild(auto);
 
