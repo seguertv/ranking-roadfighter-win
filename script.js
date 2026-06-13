@@ -29,9 +29,8 @@ function dibujar(){
    const auto=document.createElement("div");
    auto.className="auto";
 
-  const carriles = [35, 45, 55, 65];
-
-auto.style.left = carriles[index % 4] + "%";
+  const carriles = [30,40,50,60,70];
+auto.style.left = carriles[index % 5] + "%";
 
    auto.style.background=a.color;
 
