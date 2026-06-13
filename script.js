@@ -29,6 +29,10 @@ function dibujar(){
    const auto=document.createElement("div");
    auto.className="auto";
 
+  const carriles = [35, 45, 55, 65];
+
+auto.style.left = carriles[index % 4] + "%";
+
    auto.style.background=a.color;
 
    const maxVentas = asesores[0].ventas;
