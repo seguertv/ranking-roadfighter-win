@@ -27,6 +27,7 @@ body{
     width:65%;
     position:relative;
     overflow:hidden;
+    min-height:1200px;
 
     background:
     linear-gradient(
