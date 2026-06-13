@@ -83,7 +83,11 @@ function dibujar() {
         const nombre = document.createElement("div");
 
         nombre.className = "nombreAuto";
-        nombre.innerText = a.nombre.split(",")[0].split(" ")[0];
+        if(a.nombre.includes(",")){
+    nombre.innerText = a.nombre.split(",")[1].trim().split(" ")[0];
+}else{
+    nombre.innerText = a.nombre.split(" ")[0];
+}
 
         nombre.style.top = (80 + posicion - 30) + "px";
         nombre.style.left = carriles[index % 5] + "%";
