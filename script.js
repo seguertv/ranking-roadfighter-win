@@ -45,6 +45,14 @@ recorridoMaximo -
 auto.style.top = (80 + posicion) + "px";
 
    pista.appendChild(auto);
+  const nombre = document.createElement("div");
+nombre.className = "nombreAuto";
+nombre.innerText = a.nombre.split(" ")[0];
+
+nombre.style.top = (80 + posicion + 25) + "px";
+nombre.style.left = carriles[index % 5] + "%";
+
+pista.appendChild(nombre);
 
  });
 
