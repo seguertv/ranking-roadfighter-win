@@ -67,18 +67,25 @@ function dibujar(){
         const carriles = [20,35,50,65,80];
         const carril = carriles[index % carriles.length];
 
-        const maxVentas = asesores[0].ventas;
+          let posicion;
 
-const zonaMeta = 20;
-const zonaSalida = alturaUtil - 40;
-
-let posicion =
-zonaSalida -
-(
-    (a.ventas / maxVentas)
-    *
-    (zonaSalida - zonaMeta)
-);
+if(index === 0){
+    posicion = 10;
+}
+else if(index === 1){
+    posicion = 90;
+}
+else if(index === 2){
+    posicion = 170;
+}
+else{
+    posicion =
+    260 + (
+        ((alturaUtil - 260) /
+        (totalAsesores - 3))
+        * (index - 3)
+    );
+    
 }
 
         const auto = document.createElement("img");
