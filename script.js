@@ -1,3 +1,4 @@
+alert("VERSION NUEVA");
 let asesores = [];
 
 const pista = document.getElementById("pista");
