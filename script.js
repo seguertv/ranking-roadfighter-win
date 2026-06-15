@@ -56,8 +56,14 @@ function dibujar() {
 
     asesores.forEach((a, index) => {
 
+        let icono = "";
+
+        if (index === 0) icono = "🥇 ";
+        else if (index === 1) icono = "🥈 ";
+        else if (index === 2) icono = "🥉 ";
+
         ranking.innerHTML += `
-        <p>${index + 1}. ${a.nombre} (${a.ventas})</p>
+        <p>${icono}${index + 1}. ${a.nombre} (${a.ventas})</p>
         `;
 
         const auto = document.createElement("img");
@@ -66,19 +72,19 @@ function dibujar() {
         auto.className = "auto";
         auto.style.filter = `drop-shadow(0 0 8px ${a.color})`;
 
-        nombre.style.top = (80 + posicion - 22) + "px";
+        const carriles = [20, 35, 50, 65, 80];
 
-const carril = carriles[index % 5];
+        const carril = carriles[index % 5];
 
-nombre.style.left = `calc(${carril}% - 25px)`;
-nombre.style.width = "80px";
-nombre.style.textAlign = "center";
+        auto.style.left = carril + "%";
 
-        const recorridoMaximo = 800;
+        const recorridoMaximo = 2500;
 
         const posicion =
             recorridoMaximo -
-            ((a.ventas / maxVentas) * recorridoMaximo);
+            ((Math.pow(a.ventas, 1.5) /
+            Math.pow(maxVentas, 1.5))
+            * recorridoMaximo);
 
         auto.style.top = (80 + posicion) + "px";
 
@@ -87,27 +93,36 @@ nombre.style.textAlign = "center";
         const nombre = document.createElement("div");
 
         nombre.className = "nombreAuto";
-        if(a.nombre.includes(",")){
-    nombre.innerText = a.nombre.split(",")[1].trim().split(" ")[0];
-}else{
-    nombre.innerText = a.nombre.split(" ")[0];
-}
 
-        nombre.style.top = (80 + posicion - 25) + "px";
-        nombre.style.left = carriles[index % 5] + "%";
+        if (a.nombre.includes(",")) {
+            nombre.innerText =
+                a.nombre.split(",")[1]
+                .trim()
+                .split(" ")[0];
+        } else {
+            nombre.innerText =
+                a.nombre.split(" ")[0];
+        }
+
+        nombre.style.top =
+            (80 + posicion - 28) + "px";
+
+        nombre.style.left =
+            carril + "%";
 
         pista.appendChild(nombre);
 
     });
 
-    document.getElementById("cuota").innerText = "-";
+    document.getElementById("cuota").innerText = "199";
 
     const totalVentas = asesores.reduce(
         (total, asesor) => total + asesor.ventas,
         0
     );
 
-    document.getElementById("ventasMes").innerText = totalVentas;
+    document.getElementById("ventasMes").innerText =
+        totalVentas;
 
     document.getElementById("hora").innerText =
         new Date().toLocaleTimeString();
