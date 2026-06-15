@@ -1,4 +1,3 @@
-alert("VERSION NUEVA");
 let asesores = [];
 
 const pista = document.getElementById("pista");
@@ -110,7 +109,7 @@ function dibujar(){
         carril + "%";
 
         nombre.style.top =
-        (posicion - 25) + "px";
+        (posicion + 5) + "px";
 
         pista.appendChild(nombre);
 
