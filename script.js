@@ -132,7 +132,7 @@ else{
         nombre.style.left = carril + "%";
 
         nombre.style.top =
-        (posicion + 78) + "px";
+        (posicion - 18) + "px";
 
         pista.appendChild(nombre);
 
