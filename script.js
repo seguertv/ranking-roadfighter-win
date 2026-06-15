@@ -48,10 +48,9 @@ function dibujar(){
 
     asesores.sort((a,b) => b.ventas - a.ventas);
 
-    const maxVentas = asesores[0].ventas;
-    const alturaPista = pista.clientHeight - 180;
+    const totalAsesores = asesores.length;
 
-    const repetidos = {};
+    const alturaUtil = pista.clientHeight - 220;
 
     asesores.forEach((a,index)=>{
 
@@ -62,7 +61,7 @@ function dibujar(){
         else if(index === 2) icono = "🥉";
 
         ranking.innerHTML += `
-            <p>${icono} ${index+1}. ${a.nombre} (${a.ventas})</p>
+            <p>${icono} ${index + 1}. ${a.nombre} (${a.ventas})</p>
         `;
 
         const auto = document.createElement("img");
@@ -80,20 +79,10 @@ function dibujar(){
 
         auto.style.left = carril + "%";
 
-        let posicion =
-        alturaPista -
-        ((a.ventas / maxVentas) * alturaPista);
+        const posicion =
+        40 + ((alturaUtil / totalAsesores) * index);
 
-        if(!repetidos[a.ventas]){
-            repetidos[a.ventas] = 0;
-        }else{
-            repetidos[a.ventas]++;
-        }
-
-        posicion += repetidos[a.ventas] * 90;
-
-        auto.style.top =
-        (80 + posicion) + "px";
+        auto.style.top = posicion + "px";
 
         pista.appendChild(auto);
 
@@ -105,8 +94,7 @@ function dibujar(){
         if(a.nombre.includes(",")){
 
             nombre.innerText =
-            a.nombre
-            .split(",")[1]
+            a.nombre.split(",")[1]
             .trim()
             .split(" ")[0];
 
@@ -121,7 +109,7 @@ function dibujar(){
         carril + "%";
 
         nombre.style.top =
-        (55 + posicion) + "px";
+        (posicion - 25) + "px";
 
         pista.appendChild(nombre);
 
