@@ -41,7 +41,6 @@ body{
     );
 }
 
-/* NUEVO */
 #pista{
     position:relative;
     height:calc(100vh - 120px);
@@ -117,16 +116,58 @@ body{
     transition:all 1s ease;
 }
 
+/* NUEVA PLACA DE NOMBRE */
+
 .nombreAuto{
+
     position:absolute;
-    width:90px;
+
     transform:translateX(-50%);
-    text-align:center;
-    font-size:12px;
-    font-weight:bold;
+
+    background:rgba(0,0,0,0.88);
+
+    border:2px solid #666;
+
+    border-radius:8px;
+
     color:white;
-    text-shadow:2px 2px 3px black;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    padding:4px 10px;
+
+    text-align:center;
+
+    white-space:nowrap;
+
     z-index:999;
+
+    box-shadow:
+        0 0 8px rgba(0,0,0,0.8);
+
+    pointer-events:none;
+}
+
+/* MEDALLAS TOP 3 */
+
+.top1{
+    border-color:#FFD700;
+    box-shadow:
+        0 0 10px #FFD700;
+}
+
+.top2{
+    border-color:#C0C0C0;
+    box-shadow:
+        0 0 10px #C0C0C0;
+}
+
+.top3{
+    border-color:#CD7F32;
+    box-shadow:
+        0 0 10px #CD7F32;
 }
 
 .panel-box{
@@ -137,6 +178,7 @@ body{
 }
 
 @keyframes carretera{
+
     from{
         transform:translateY(0);
     }
@@ -144,4 +186,5 @@ body{
     to{
         transform:translateY(80px);
     }
+
 }
