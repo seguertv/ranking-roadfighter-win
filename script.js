@@ -16,11 +16,11 @@ async function cargarDatos() {
 
         asesores = [];
 
-        for (let i = 1; i < filas.length; i++) {
+        for(let i = 1; i < filas.length; i++){
 
             const columnas = filas[i].split("\t");
 
-            if (columnas.length < 3) continue;
+            if(columnas.length < 3) continue;
 
             asesores.push({
                 nombre: columnas[0],
@@ -31,7 +31,7 @@ async function cargarDatos() {
 
         dibujar();
 
-    } catch (error) {
+    } catch(error){
 
         console.error(error);
 
@@ -39,29 +39,30 @@ async function cargarDatos() {
 
 }
 
-function dibujar() {
+function dibujar(){
 
     ranking.innerHTML = "";
     pista.innerHTML = "";
 
-    if (asesores.length === 0) return;
+    if(asesores.length === 0) return;
 
-    asesores.sort((a, b) => b.ventas - a.ventas);
+    asesores.sort((a,b) => b.ventas - a.ventas);
 
     const maxVentas = asesores[0].ventas;
+    const alturaPista = pista.clientHeight - 180;
 
-    const alturaPista = pista.clientHeight - 150;
+    const repetidos = {};
 
-    asesores.forEach((a, index) => {
+    asesores.forEach((a,index)=>{
 
         let icono = "";
 
-        if (index === 0) icono = "🥇";
-        else if (index === 1) icono = "🥈";
-        else if (index === 2) icono = "🥉";
+        if(index === 0) icono = "🥇";
+        else if(index === 1) icono = "🥈";
+        else if(index === 2) icono = "🥉";
 
         ranking.innerHTML += `
-            <p>${icono} ${index + 1}. ${a.nombre} (${a.ventas})</p>
+            <p>${icono} ${index+1}. ${a.nombre} (${a.ventas})</p>
         `;
 
         const auto = document.createElement("img");
@@ -70,48 +71,57 @@ function dibujar() {
         auto.className = "auto";
 
         auto.style.filter =
-            `drop-shadow(0 0 8px ${a.color})`;
+        `drop-shadow(0 0 8px ${a.color})`;
 
         const carriles = [20,35,50,65,80];
 
         const carril =
-            carriles[index % carriles.length];
+        carriles[index % carriles.length];
 
         auto.style.left = carril + "%";
 
-        const posicion =
-            alturaPista -
-            ((a.ventas / maxVentas) * alturaPista);
+        let posicion =
+        alturaPista -
+        ((a.ventas / maxVentas) * alturaPista);
+
+        if(!repetidos[a.ventas]){
+            repetidos[a.ventas] = 0;
+        }else{
+            repetidos[a.ventas]++;
+        }
+
+        posicion += repetidos[a.ventas] * 90;
 
         auto.style.top =
-            (80 + posicion) + "px";
+        (80 + posicion) + "px";
 
         pista.appendChild(auto);
 
         const nombre =
-            document.createElement("div");
+        document.createElement("div");
 
         nombre.className = "nombreAuto";
 
-        if (a.nombre.includes(",")) {
+        if(a.nombre.includes(",")){
 
             nombre.innerText =
-                a.nombre.split(",")[1]
-                .trim()
-                .split(" ")[0];
+            a.nombre
+            .split(",")[1]
+            .trim()
+            .split(" ")[0];
 
-        } else {
+        }else{
 
             nombre.innerText =
-                a.nombre.split(" ")[0];
+            a.nombre.split(" ")[0];
 
         }
 
         nombre.style.left =
-            carril + "%";
+        carril + "%";
 
         nombre.style.top =
-            (55 + posicion) + "px";
+        (55 + posicion) + "px";
 
         pista.appendChild(nombre);
 
@@ -120,13 +130,13 @@ function dibujar() {
     document.getElementById("cuota").innerText = "199";
 
     document.getElementById("ventasMes").innerText =
-        asesores.reduce(
-            (suma, a) => suma + a.ventas,
-            0
-        );
+    asesores.reduce(
+        (suma,a)=>suma+a.ventas,
+        0
+    );
 
     document.getElementById("hora").innerText =
-        new Date().toLocaleTimeString();
+    new Date().toLocaleTimeString();
 
 }
 
